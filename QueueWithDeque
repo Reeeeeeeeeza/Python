@@ -1,0 +1,22 @@
+import collections
+
+class Queue:
+    def __init__(self):
+        self.stack=collections.deque([])
+    def append(self,data):
+        self.stack.appendleft(data)
+    def remove(self):
+        self.stack.pop()
+    def lenght(self):
+        return (self.stack.length())
+    def show(self):
+        for i in self.stack:
+            print(i,end='->')
+instance=Queue()
+instance.append('Hamid')
+instance.append("Raza")
+instance.append("shigri")
+instance.show()
+instance.remove()
+print("\n")
+instance.show()
