@@ -1,0 +1,18 @@
+class Stack:
+    def __init__(self):
+        self.stack=[]
+    def append(self,data):
+        self.stack.append(data)
+    def remove(self):
+        self.stack.pop()
+    def lenght(self):
+        return (self.stack.lenght())
+    def show(self):
+        for i in self.stack:
+            print(i,end='->')
+instance=Stack()
+instance.append('Hamid')
+instance.append("Raza")
+instance.append("shigri")
+instance.remove()
+instance.show()
