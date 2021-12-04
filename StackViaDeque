@@ -8,7 +8,7 @@ class Stack:
     def remove(self):
         self.stack.pop()
     def lenght(self):
-        return (self.stack.lenght())
+        return (self.stack.length())
     def show(self):
         for i in self.stack:
             print(i,end='->')
