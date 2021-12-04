@@ -1,0 +1,49 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=None
+    def append(self,data):
+        Node=node(data)
+        if self.head==None:
+            self.head=Node
+        else:
+            temp=self.head
+            self.head=Node
+            self.head.next=temp
+    def remove(self):
+        temp=self.head
+        self.head=temp.next
+        temp=None
+        
+    def display(self):
+        temp=self.head
+        lst=[]
+        while temp != None:
+ #           print(temp.data)
+            lst.append(temp.data)
+            temp = temp.next
+        for i in lst:
+            print(i,end="-->")
+        
+            
+    def length(self):
+        temp=self.head
+        ctr=int(0)
+
+        while temp is not None:
+            ctr+=1
+            temp=temp.next
+        return ctr
+
+stack=linkedlist()
+stack.append(1)
+stack.append(2)
+stack.append(3)
+print("There are "+str(stack.length())+" elements in the list")
+print(stack.display())
+stack.remove()#removing an element from the linked list
+print("\nDisplaying the linked list after removal of an element")
+print(stack.display())
