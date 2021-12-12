@@ -1,0 +1,74 @@
+EXPRESSION=['+','-','*','/']
+class Node:
+    def __init__(self,value):
+        self.value=value
+        self.left=None
+        self.right=None
+class Binary_Tree:        
+    def __init__(self, root):
+        self.root = Node(root)
+        print("Root has been created")
+ 
+    def preorder_print(self,start, traversal):
+        if start: 
+            traversal+=(str(start.value)+ "_")
+            traversal = self.preorder_print(start.left,traversal)
+            traversal= self.preorder_print(start.right, traversal)
+        return traversal
+    
+    def inorder_print(self,start,traversal):
+        if start:
+            traversal =self.inorder_print(start.left, traversal)
+            traversal += (str(start.value)+" ")
+            traversal = self.inorder_print(start.right,traversal)
+        return traversal
+    
+    def postorder_print(self,start,traversal):
+        if start:
+            traversal =self.postorder_print(start.left, traversal)
+            traversal = self.postorder_print(start.right,traversal)
+            traversal += (str(start.value)+"---")
+        return traversal
+
+    def print_traversal(self, traversal_type):
+        if traversal_type== 'preorder':
+            return self.preorder_print(tree.root,"")
+        elif traversal_type == 'inorder':
+            return self.inorder_print(tree.root,"")
+        elif traversal_type =='postorder':
+            return self.postorder_print(tree.root,"")
+        else:
+            print("Invalid Option")
+            return False
+
+
+tree= Binary_Tree('-') 
+tree.root.left=Node('*')
+tree.root.left.left=Node('-')
+tree.root.left.left.left=Node(0)
+tree.root.left.left.right=Node(0)
+tree.root.left.right=Node('/')
+tree.root.left.right.left=Node(9)
+tree.root.left.right.right=Node(0)
+tree.root.right=Node('/')
+tree.root.right.left=Node('*')
+tree.root.right.left.left=Node(1)
+tree.root.right.left.right=Node(0)
+tree.root.right.right=Node('+')
+tree.root.right.right.left=Node(2)
+tree.root.right.right.right=Node(0)
+num1=int()
+num2=int()
+stck=[]
+streak=[]
+x=(tree.print_traversal('inorder'))
+for i in x:
+    stck.append(i)
+    
+print(stck)
+#Stack after removal of spacing
+for i in x:
+    if i!=' ':
+        streak.append(i)
+print(streak)
+
